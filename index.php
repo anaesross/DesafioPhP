@@ -9,8 +9,9 @@ include_once("assets/includes/menu.php");?>
                         <th scope="col">Nome</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">Quantidade</th>
                         <th scope="col">Preço</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,7 +20,8 @@ include_once("assets/includes/menu.php");?>
                         <td>teste</td>
                         <td>teste</td>
                         <td>teste</td>
-                        <td>teste</td>
+                        <td><i class="fas fa-pencil-alt"></i></td>
+                        <td><i class="far fa-trash-alt"></i></td>
                     </tr>
                 </tbody>
             </table>

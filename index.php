@@ -1,34 +1,40 @@
+<?php 
+session_start();
+?>
 <?php include_once("assets/includes/functions.php");
 include_once("assets/includes/menu.php");?>
-<main class="container">
+<main class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <table class="table">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Nome</th>
-                        <th scope="col">Categoria</th>
                         <th scope="col">Descrição</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Preço</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Excluir</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Ver Produto</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">teste</th>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td><i class="fas fa-pencil-alt"></i></td>
-                        <td><i class="far fa-trash-alt"></i></td>
+                    <?php foreach($_SESSION['produtos'] as $key => $value) { ?>
+                    <tr class="text-center">
+                        <!-- <td> <img src='<= $p['imagem']; ?>' style='width: 100%'> </td> -->
+                        <th scope="row"> <?= $value['nome']; ?> </th>
+                        <td><?= $value['descricao']; ?> </td>
+                        <td><?= $value['categoria']; ?></td>
+                        <td><?= $value['preco']; ?></td>
+                        <td><?= $value['quantidade']; ?></td>
+                        <td><a href="produtos.php?id=$key">Visualizar</a></td>
                     </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 bg-light p-5">
             <h3>Cadastrar Produto</h3>
-            <form>
+            <form method="post" action="validar.php" enctype='multipart/form-data'>
                 <div class="form-group">
                     <label>Nome</label>
                     <input class="form-control" type="text" name="nome" placeholder="Digite o nome do produto"/>

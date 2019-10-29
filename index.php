@@ -20,13 +20,12 @@ include_once("assets/includes/menu.php");?>
                 <tbody>
                     <?php foreach($_SESSION['produtos'] as $key => $value) { ?>
                     <tr class="text-center">
-                        <!-- <td> <img src='<= $p['imagem']; ?>' style='width: 100%'> </td> -->
                         <th scope="row"> <?= $value['nome']; ?> </th>
                         <td><?= $value['descricao']; ?> </td>
                         <td><?= $value['categoria']; ?></td>
                         <td><?= $value['preco']; ?></td>
                         <td><?= $value['quantidade']; ?></td>
-                        <td><a href="produtos.php?id=$key">Visualizar</a></td>
+                        <td><a href="produtos.php?id=<?=$key?>">Visualizar</a></td>
                     </tr>
                     <?php } ?>
                 </tbody>
